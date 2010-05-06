@@ -1,0 +1,15 @@
+#!/bin/sh
+
+cd classes
+result=$?
+[ $result -ne 0 ] && exit $result
+
+echo "Creating javabar.jar..."
+jar cMf ../javabar.jar *
+result=$?
+[ $result -ne 0 ] && {
+    cd ..
+    exit $result
+}
+
+cd ..

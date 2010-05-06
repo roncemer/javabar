@@ -1,0 +1,13 @@
+#!/bin/sh
+
+echo "Compiling..."
+rm -rf classes
+mkdir -p classes
+javac -O -d classes `find src -name "*.java"`
+result=$?
+[ $result -ne 0 ] && exit $result
+
+./createjars
+result=$?
+[ $result -ne 0 ] && exit $result
+
